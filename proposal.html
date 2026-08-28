@@ -1,0 +1,3687 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7c5d2">
+
+<title>For Eva ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    color:#4a2735;
+}
+
+
+/* =========================================================
+   MAIN APP
+========================================================= */
+
+#app{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   SCREENS
+========================================================= */
+
+.screen{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:70px 30px 85px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:scale(1.025);
+
+    transition:
+        opacity .65s ease,
+        transform .75s cubic-bezier(.2,.8,.2,1),
+        visibility .65s;
+
+    overflow:hidden;
+}
+
+.screen.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+    z-index:10;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.bg{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(5px);
+    animation:orbFloat 10s ease-in-out infinite;
+}
+
+.orb.one{
+    width:430px;
+    height:430px;
+    top:-180px;
+    left:-120px;
+    background:rgba(255,255,255,.45);
+}
+
+.orb.two{
+    width:370px;
+    height:370px;
+    right:-120px;
+    bottom:-150px;
+    background:rgba(255,255,255,.32);
+    animation-delay:-3s;
+}
+
+.orb.three{
+    width:180px;
+    height:180px;
+    left:45%;
+    top:15%;
+    background:rgba(255,255,255,.18);
+    animation-delay:-6s;
+}
+
+.glow{
+    position:absolute;
+    width:650px;
+    height:650px;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.16);
+
+    filter:blur(110px);
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+}
+
+@keyframes orbFloat{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(20px,-25px);
+    }
+}
+
+
+/* =========================================================
+   PETALS
+========================================================= */
+
+.petals{
+    position:absolute;
+    inset:0;
+}
+
+.petal{
+    position:absolute;
+
+    top:-50px;
+
+    width:13px;
+    height:21px;
+
+    border-radius:100% 0 100% 0;
+
+    background:rgba(255,255,255,.55);
+
+    transform:rotate(35deg);
+
+    animation:petalFall linear infinite;
+}
+
+@keyframes petalFall{
+
+    0%{
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.7;
+    }
+
+    90%{
+        opacity:.6;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            translateX(80px)
+            rotate(420deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.stars{
+    position:absolute;
+    inset:0;
+}
+
+.star{
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:0 0 15px white;
+
+    animation:twinkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content{
+    width:min(1050px,100%);
+    height:100%;
+
+    position:relative;
+    z-index:5;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.eyebrow{
+    text-transform:uppercase;
+    letter-spacing:5px;
+
+    font-size:10px;
+
+    color:#8f5268;
+
+    margin-bottom:20px;
+}
+
+.big-title{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(50px,9vw,115px);
+
+    line-height:.86;
+
+    font-weight:500;
+}
+
+.big-title em{
+    color:#d85d83;
+    font-style:italic;
+}
+
+.subtitle{
+    width:min(620px,100%);
+
+    margin:22px auto 0;
+
+    line-height:1.8;
+
+    color:#775c68;
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+    border:0;
+
+    padding:14px 27px;
+
+    border-radius:100px;
+
+    cursor:pointer;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:13px;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.btn-primary{
+    background:linear-gradient(
+        135deg,
+        #e76e91,
+        #c95178
+    );
+
+    color:white;
+
+    box-shadow:
+        0 15px 40px rgba(190,65,105,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 20px 55px rgba(190,65,105,.35);
+}
+
+.btn-light{
+    background:rgba(255,255,255,.42);
+
+    border:1px solid rgba(120,60,80,.15);
+
+    color:#673c4d;
+}
+
+.btn-light:hover{
+    transform:translateY(-3px);
+
+    background:rgba(255,255,255,.65);
+}
+
+
+/* =========================================================
+   NAVIGATION AREA
+========================================================= */
+
+.navigation{
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:18px;
+
+    z-index:30;
+
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    pointer-events:none;
+}
+
+.navigation button{
+    pointer-events:auto;
+}
+
+.next{
+    border:1px solid rgba(255,255,255,.55);
+
+    background:rgba(255,255,255,.30);
+
+    backdrop-filter:blur(15px);
+
+    color:#6c3d4f;
+
+    padding:11px 21px;
+
+    border-radius:100px;
+
+    cursor:pointer;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    transition:.3s ease;
+}
+
+.next:hover{
+    transform:translateY(-2px);
+
+    background:rgba(255,255,255,.5);
+}
+
+
+/* =========================================================
+   PAGE NUMBER
+========================================================= */
+
+.page-number{
+    position:absolute;
+
+    right:28px;
+    bottom:28px;
+
+    z-index:25;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:rgba(80,40,55,.55);
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+.music{
+    position:fixed;
+
+    top:18px;
+    right:18px;
+
+    z-index:100;
+
+    padding:9px 14px;
+
+    border-radius:100px;
+
+    background:rgba(255,255,255,.28);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.5);
+
+    cursor:pointer;
+
+    color:#653c4d;
+
+    font-size:11px;
+}
+
+.music-bars{
+    display:inline-flex;
+
+    align-items:flex-end;
+
+    gap:2px;
+
+    height:12px;
+
+    margin-left:5px;
+}
+
+.music-bars span{
+    width:2px;
+    height:4px;
+
+    background:#c94e76;
+}
+
+.music.playing span{
+    animation:bars .6s infinite alternate;
+}
+
+.music.playing span:nth-child(2){
+    animation-delay:.15s;
+}
+
+.music.playing span:nth-child(3){
+    animation-delay:.3s;
+}
+
+@keyframes bars{
+
+    to{
+        height:12px;
+    }
+}
+
+
+/* =========================================================
+   SCREEN 1
+========================================================= */
+
+#s1{
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ffffff 0%,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #ffd9df,
+            #ffd0bb 48%,
+            #f4a9b9
+        );
+}
+
+.open-heart{
+    font-size:48px;
+
+    margin-bottom:20px;
+
+    animation:heartBeat 1.7s ease-in-out infinite;
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    15%{
+        transform:scale(1.12);
+    }
+
+    30%{
+        transform:scale(1);
+    }
+}
+
+
+/* =========================================================
+   SCREEN 2
+========================================================= */
+
+#s2{
+    background:
+        radial-gradient(
+            circle at 70% 25%,
+            #fff0dc,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #f9c6ad,
+            #ef9e9f 55%,
+            #d982a0
+        );
+}
+
+.year-card{
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:100px;
+
+    background:rgba(255,255,255,.3);
+
+    border:1px solid rgba(255,255,255,.5);
+
+    margin-bottom:25px;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   SCREEN 3
+========================================================= */
+
+#s3{
+    background:
+        radial-gradient(
+            circle at 25% 25%,
+            #fff 0%,
+            transparent 20%
+        ),
+        linear-gradient(
+            135deg,
+            #f8d8e6,
+            #d9c9ed 55%,
+            #f3c4d2
+        );
+}
+
+.memory-wrap{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    margin-top:32px;
+}
+
+.memory-card{
+    min-height:220px;
+
+    padding:27px 23px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.32);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 20px 50px rgba(100,50,100,.08);
+
+    transition:.4s;
+}
+
+.memory-card:hover{
+    transform:translateY(-7px);
+}
+
+.memory-card:nth-child(2){
+    transform:translateY(18px);
+}
+
+.memory-card:nth-child(2):hover{
+    transform:translateY(10px);
+}
+
+.memory-icon{
+    font-size:34px;
+
+    margin-bottom:16px;
+}
+
+.memory-card h3{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:29px;
+
+    margin-bottom:8px;
+}
+
+.memory-card p{
+    color:#765d6a;
+
+    line-height:1.7;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   SCREEN 4
+========================================================= */
+
+#s4{
+    background:
+        radial-gradient(
+            circle at 70% 25%,
+            #fff3ed,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #ffe4df,
+            #ffc5c9 50%,
+            #f4a5bc
+        );
+}
+
+.innocence{
+    max-width:850px;
+}
+
+.flower{
+    font-size:45px;
+
+    margin-bottom:20px;
+}
+
+.quote{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(36px,6vw,72px);
+
+    line-height:1;
+
+    color:#74394f;
+}
+
+.quote em{
+    color:#d85d83;
+}
+
+#s4 .subtitle{
+    max-width:600px;
+}
+
+
+/* =========================================================
+   SCREEN 5
+========================================================= */
+
+#s5{
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #fff1d9,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #ffd5a9,
+            #f99d91 55%,
+            #e7839d
+        );
+}
+
+.warning{
+    width:min(600px,100%);
+
+    margin-top:25px;
+
+    padding:32px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.3);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 20px 60px rgba(100,40,40,.1);
+}
+
+.warning-icon{
+    font-size:42px;
+}
+
+.warning h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:37px;
+
+    margin:10px 0;
+}
+
+.status{
+    display:inline-block;
+
+    background:rgba(255,255,255,.5);
+
+    padding:7px 14px;
+
+    border-radius:100px;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+.warning p{
+    color:#725763;
+
+    line-height:1.7;
+
+    font-size:13px;
+}
+
+.joke{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:25px;
+
+    font-style:italic;
+
+    color:#b14369;
+
+    margin-top:15px;
+}
+
+
+/* =========================================================
+   SCREEN 6 — SUNSET
+========================================================= */
+
+#s6{
+    background:
+        linear-gradient(
+            180deg,
+            #7562a1 0%,
+            #dc8290 40%,
+            #ffb26f 62%,
+            #f58d69 68%,
+            #61445c 100%
+        );
+}
+
+.sun{
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background:#ffe0a3;
+
+    top:18%;
+    right:20%;
+
+    box-shadow:
+        0 0 80px rgba(255,210,140,.8);
+}
+
+.mountain{
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+    height:40%;
+
+    background:#34283e;
+
+    clip-path:polygon(
+        0 65%,
+        12% 42%,
+        24% 63%,
+        39% 30%,
+        55% 63%,
+        70% 35%,
+        84% 62%,
+        100% 42%,
+        100% 100%,
+        0 100%
+    );
+}
+
+.sunset-couple{
+    position:absolute;
+
+    bottom:17%;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:25px;
+
+    align-items:flex-end;
+}
+
+.silhouette{
+    width:42px;
+    height:120px;
+
+    background:#15121b;
+
+    border-radius:
+        30px 30px 5px 5px;
+
+    position:relative;
+}
+
+.silhouette:before{
+    content:"";
+
+    position:absolute;
+
+    width:43px;
+    height:43px;
+
+    border-radius:50%;
+
+    background:#15121b;
+
+    top:-31px;
+    left:0;
+}
+
+.sunset-copy{
+    position:absolute;
+
+    z-index:5;
+
+    left:20px;
+    right:20px;
+    bottom:95px;
+
+    text-align:center;
+
+    color:white;
+}
+
+.sunset-copy small{
+    letter-spacing:4px;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+}
+
+.sunset-copy h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(37px,6vw,72px);
+
+    line-height:.9;
+
+    font-weight:500;
+
+    margin-top:12px;
+}
+
+.sunset-copy em{
+    color:#ffe0c0;
+}
+
+
+/* =========================================================
+   SCREEN 7 — LETTER
+========================================================= */
+
+#s7{
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            white,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #f6d8d4,
+            #f3c3c7 50%,
+            #e9b2c8
+        );
+}
+
+.letter-box{
+    width:min(800px,100%);
+
+    max-height:
+        min(66vh,620px);
+
+    overflow-y:auto;
+
+    padding:40px;
+
+    text-align:left;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf1,
+            #fff4ec
+        );
+
+    border-radius:8px;
+
+    box-shadow:
+        0 30px 80px rgba(100,45,60,.2),
+        0 5px 15px rgba(100,45,60,.1);
+
+    position:relative;
+
+    scrollbar-width:thin;
+}
+
+.letter-box:before{
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border:1px solid rgba(160,90,110,.2);
+
+    pointer-events:none;
+}
+
+.letter-box h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:46px;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    color:#704052;
+}
+
+.letter-box p{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:21px;
+
+    line-height:1.55;
+
+    color:#684c57;
+
+    margin-bottom:13px;
+}
+
+.signature{
+    color:#c55278 !important;
+
+    font-style:italic;
+
+    margin-top:20px;
+}
+
+
+/* =========================================================
+   SCREEN 8 — FAITH
+========================================================= */
+
+#s8{
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255,194,205,.3),
+            transparent 18%
+        ),
+        radial-gradient(
+            circle at 30% 70%,
+            rgba(122,92,180,.25),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #5c4b91,
+            #302a5d 50%,
+            #1e1c3c
+        );
+}
+
+#s8 .eyebrow{
+    color:#f8d9e4;
+}
+
+#s8 .big-title{
+    color:white;
+}
+
+#s8 .subtitle{
+    color:#ded5e5;
+}
+
+.cross{
+    font-size:42px;
+
+    margin-bottom:20px;
+
+    opacity:.9;
+}
+
+
+/* =========================================================
+   SCREEN 9 — PROPOSAL
+========================================================= */
+
+#s9{
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #fff1db 0%,
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 20% 20%,
+            #ffdbe4,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f4b7c6,
+            #f6c8a9 55%,
+            #e99aad
+        );
+}
+
+.ring{
+    width:105px;
+    height:105px;
+
+    border:7px solid #c9a06d;
+
+    border-radius:50%;
+
+    margin-bottom:25px;
+
+    position:relative;
+
+    box-shadow:
+        0 0 30px rgba(255,220,170,.8);
+
+    animation:ringFloat 4s ease-in-out infinite;
+}
+
+.ring:before{
+    content:"";
+
+    position:absolute;
+
+    width:40px;
+    height:40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #ffd5df
+        );
+
+    transform:rotate(45deg);
+
+    top:-27px;
+    left:26px;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 0 35px rgba(255,255,255,.9);
+}
+
+@keyframes ringFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50%{
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+    }
+}
+
+.proposal-name{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(42px,7vw,78px);
+
+    color:#71384e;
+}
+
+.proposal-question{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(55px,9vw,105px);
+
+    line-height:.78;
+
+    color:#c94e76;
+
+    font-style:italic;
+}
+
+.proposal-note{
+    width:min(580px,100%);
+
+    margin:18px auto;
+
+    color:#744e5d;
+
+    line-height:1.65;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   PROPOSAL BUTTONS
+========================================================= */
+
+.proposal-buttons{
+    min-height:58px;
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:15px;
+
+    position:relative;
+
+    margin-top:5px;
+}
+
+.yes{
+    background:
+        linear-gradient(
+            135deg,
+            #d9587d,
+            #b93f67
+        );
+
+    color:white;
+
+    border:0;
+
+    border-radius:100px;
+
+    padding:14px 24px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 12px 35px rgba(180,55,90,.25);
+
+    transition:.3s ease;
+
+    font-size:13px;
+}
+
+.yes:hover{
+    transform:translateY(-3px);
+}
+
+.no{
+    background:rgba(255,255,255,.4);
+
+    border:1px solid rgba(100,50,65,.15);
+
+    color:#704453;
+
+    border-radius:100px;
+
+    padding:14px 24px;
+
+    cursor:pointer;
+
+    transition:
+        transform .35s ease,
+        opacity .3s ease;
+}
+
+.no:hover{
+    background:rgba(255,255,255,.6);
+}
+
+.proposal-message{
+    min-height:30px;
+
+    margin-top:8px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:23px;
+
+    color:#a83d61;
+}
+
+
+/* =========================================================
+   RESPECT BOX
+========================================================= */
+
+.respect{
+    width:min(580px,100%);
+
+    margin-top:12px;
+
+    padding:20px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.3);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    animation:fadeIn .5s ease;
+}
+
+.respect h3{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:32px;
+}
+
+.respect p{
+    color:#775b66;
+
+    margin:6px 0 12px;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+.respect button{
+    margin:4px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================================================
+   SCREEN 10 — YES
+========================================================= */
+
+#s10{
+    background:
+        radial-gradient(
+            circle at center,
+            #fff7e8 0%,
+            transparent 22%
+        ),
+        linear-gradient(
+            135deg,
+            #f99db8,
+            #ffb8a1 55%,
+            #f5c77f
+        );
+}
+
+.celebrate{
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+}
+
+.celebrate-heart{
+    position:absolute;
+
+    bottom:-40px;
+
+    animation:
+        heartRise linear forwards;
+}
+
+@keyframes heartRise{
+
+    from{
+        transform:
+            translateY(0)
+            scale(.5)
+            rotate(0);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    to{
+        transform:
+            translateY(-110vh)
+            scale(1.4)
+            rotate(25deg);
+
+        opacity:0;
+    }
+}
+
+.yes-title{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(65px,13vw,155px);
+
+    line-height:.72;
+
+    color:#75384e;
+}
+
+.yes-title span{
+    display:block;
+
+    color:#c9426e;
+
+    font-style:italic;
+}
+
+.yes-sub{
+    margin-top:28px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:29px;
+
+    color:#784d5b;
+}
+
+
+/* =========================================================
+   SCREEN 11
+========================================================= */
+
+#s11{
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(255,255,255,.2),
+            transparent 20%
+        ),
+        linear-gradient(
+            180deg,
+            #7d6da5,
+            #b8799c 45%,
+            #f09c8c 72%,
+            #f6b17c
+        );
+
+    color:white;
+}
+
+#s11 .eyebrow{
+    color:#fceaf0;
+}
+
+#s11 .big-title{
+    color:white;
+}
+
+#s11 .subtitle{
+    color:#fff0f3;
+}
+
+.constellation{
+    width:min(600px,90vw);
+
+    height:190px;
+
+    position:relative;
+
+    margin:0 auto 10px;
+}
+
+.constellation .cstar{
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 20px white;
+}
+
+.cstar.a{
+    left:10%;
+    top:65%;
+}
+
+.cstar.b{
+    left:32%;
+    top:28%;
+}
+
+.cstar.c{
+    left:53%;
+    top:55%;
+}
+
+.cstar.d{
+    left:72%;
+    top:20%;
+}
+
+.cstar.e{
+    left:91%;
+    top:60%;
+}
+
+.cline{
+    position:absolute;
+
+    height:1px;
+
+    background:rgba(255,255,255,.65);
+
+    transform-origin:left;
+}
+
+.cl1{
+    left:11%;
+    top:63%;
+    width:190px;
+    transform:rotate(-25deg);
+}
+
+.cl2{
+    left:33%;
+    top:30%;
+    width:130px;
+    transform:rotate(15deg);
+}
+
+.cl3{
+    left:54%;
+    top:53%;
+    width:125px;
+    transform:rotate(-16deg);
+}
+
+.cl4{
+    left:73%;
+    top:23%;
+    width:130px;
+    transform:rotate(23deg);
+}
+
+
+/* =========================================================
+   SCREEN 12
+========================================================= */
+
+#s12{
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #fff3df,
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #f3b0bd,
+            #c58bb1 55%,
+            #766b9e
+        );
+}
+
+.final-date{
+    letter-spacing:6px;
+
+    font-size:11px;
+
+    color:#713c53;
+
+    margin-bottom:22px;
+}
+
+.final-title{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(55px,9vw,110px);
+
+    line-height:.8;
+
+    color:#71384e;
+}
+
+.final-title em{
+    color:#c94d75;
+}
+
+.final-copy{
+    width:min(650px,100%);
+
+    margin:30px auto;
+
+    color:#684e5b;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+.final-line{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:29px;
+
+    font-style:italic;
+
+    color:#a33d62;
+}
+
+.replay{
+    margin-top:20px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .screen{
+        padding:
+            60px
+            18px
+            78px;
+    }
+
+    .content{
+        overflow:hidden;
+    }
+
+    .eyebrow{
+        letter-spacing:3px;
+
+        font-size:8px;
+
+        margin-bottom:13px;
+    }
+
+    .subtitle{
+        font-size:13px;
+
+        line-height:1.65;
+    }
+
+    .big-title{
+        font-size:
+            clamp(43px,13vw,75px);
+    }
+
+
+    /* MEMORY */
+
+    .memory-wrap{
+        grid-template-columns:1fr;
+
+        gap:9px;
+
+        margin-top:18px;
+
+        max-height:55vh;
+
+        overflow-y:auto;
+
+        padding:5px;
+    }
+
+    .memory-card{
+        min-height:auto;
+
+        padding:18px;
+
+        border-radius:20px;
+    }
+
+    .memory-card:nth-child(2){
+        transform:none;
+    }
+
+    .memory-icon{
+        font-size:27px;
+
+        margin-bottom:7px;
+    }
+
+    .memory-card h3{
+        font-size:24px;
+    }
+
+    .memory-card p{
+        font-size:12px;
+    }
+
+
+    /* WARNING */
+
+    .warning{
+        padding:23px 18px;
+
+        margin-top:15px;
+    }
+
+    .warning-icon{
+        font-size:35px;
+    }
+
+    .warning h2{
+        font-size:29px;
+    }
+
+
+    /* SUNSET */
+
+    .sun{
+        width:100px;
+        height:100px;
+
+        top:17%;
+        right:10%;
+    }
+
+    .sunset-couple{
+        bottom:16%;
+    }
+
+    .silhouette{
+        width:30px;
+        height:85px;
+    }
+
+    .silhouette:before{
+        width:31px;
+        height:31px;
+
+        top:-23px;
+    }
+
+    .sunset-copy{
+        bottom:92px;
+    }
+
+    .sunset-copy h2{
+        font-size:39px;
+    }
+
+
+    /* LETTER */
+
+    .letter-box{
+        max-height:65vh;
+
+        padding:32px 22px;
+    }
+
+    .letter-box h2{
+        font-size:38px;
+    }
+
+    .letter-box p{
+        font-size:18px;
+
+        line-height:1.5;
+    }
+
+
+    /* PROPOSAL */
+
+    .ring{
+        width:82px;
+        height:82px;
+
+        border-width:6px;
+
+        margin-bottom:16px;
+    }
+
+    .ring:before{
+        width:32px;
+        height:32px;
+
+        top:-22px;
+        left:19px;
+    }
+
+    .proposal-name{
+        font-size:44px;
+    }
+
+    .proposal-question{
+        font-size:58px;
+
+        line-height:.82;
+    }
+
+    .proposal-note{
+        font-size:12px;
+
+        margin:14px auto;
+    }
+
+    .proposal-buttons{
+        gap:10px;
+    }
+
+    .yes,
+    .no{
+        padding:12px 18px;
+
+        font-size:12px;
+    }
+
+    .respect{
+        padding:16px;
+    }
+
+    .respect h3{
+        font-size:27px;
+    }
+
+
+    /* YES */
+
+    .yes-title{
+        font-size:
+            clamp(62px,18vw,105px);
+    }
+
+    .yes-sub{
+        font-size:24px;
+    }
+
+
+    /* CONSTELLATION */
+
+    .constellation{
+        height:130px;
+    }
+
+
+    /* FINAL */
+
+    .final-title{
+        font-size:
+            clamp(53px,14vw,82px);
+    }
+
+    .final-copy{
+        font-size:13px;
+
+        margin:23px auto;
+    }
+
+    .final-line{
+        font-size:25px;
+    }
+
+
+    /* NAVIGATION */
+
+    .navigation{
+        bottom:13px;
+    }
+
+    .page-number{
+        right:14px;
+        bottom:23px;
+
+        font-size:8px;
+    }
+
+    .music{
+        top:10px;
+        right:10px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-height:650px){
+
+    .screen{
+        padding-top:52px;
+        padding-bottom:70px;
+    }
+
+    .memory-card{
+        padding:14px;
+    }
+
+    .memory-wrap{
+        max-height:47vh;
+    }
+
+    .warning{
+        padding:18px;
+    }
+
+    .warning p{
+        font-size:11px;
+    }
+
+    .letter-box{
+        max-height:60vh;
+    }
+
+    .proposal-note{
+        margin:8px auto;
+    }
+
+    .ring{
+        width:65px;
+        height:65px;
+    }
+
+    .proposal-question{
+        font-size:50px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div id="app">
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<button class="music" id="musicBtn">
+
+    ♪ Our song
+
+    <span class="music-bars">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </span>
+
+</button>
+
+
+<audio id="song" loop>
+    <source src="assets/song.mp3" type="audio/mpeg">
+</audio>
+
+
+
+<!-- =====================================================
+     SCREEN 1
+===================================================== -->
+
+<section class="screen active" id="s1">
+
+    <div class="bg">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="glow"></div>
+
+        <div class="petals" data-petals></div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="open-heart">
+            ❤️
+        </div>
+
+        <div class="eyebrow">
+            A little something for Eva
+        </div>
+
+        <h1 class="big-title">
+
+            Don't judge<br>
+
+            <em>the website.</em>
+
+        </h1>
+
+        <p class="subtitle">
+
+            I could have said this in a normal way...
+
+            but where's the fun in that?
+
+        </p>
+
+        <button
+            class="btn btn-primary"
+            onclick="nextScreen()">
+
+            Okay, I'm curious →
+
+        </button>
+
+    </div>
+
+
+    <div class="page-number">
+        01 / 12
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 2
+===================================================== -->
+
+<section class="screen" id="s2">
+
+    <div class="bg">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+
+        <div class="petals" data-petals></div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="year-card">
+            CHAPTER 01 · YEARS LATER
+        </div>
+
+        <h1 class="big-title">
+
+            Sometimes people<br>
+
+            <em>find their way back.</em>
+
+        </h1>
+
+        <p class="subtitle">
+
+            We passed out of high school.
+
+            Life moved forward.
+
+            Years passed.
+
+            Different days, different places,
+
+            different versions of ourselves.
+
+        </p>
+
+        <p
+            class="subtitle"
+            style="
+                font-family:'Cormorant Garamond',serif;
+                font-size:27px;
+                color:#a44263;
+                font-style:italic;
+            ">
+
+            And then, completely unexpectedly...
+
+        </p>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="next"
+            onclick="nextScreen()">
+
+            We met again →
+
+        </button>
+
+    </div>
+
+
+    <div class="page-number">
+        02 / 12
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 3
+===================================================== -->
+
+<section class="screen" id="s3">
+
+    <div class="bg">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="eyebrow">
+            CHAPTER 02 · THE LITTLE STORY
+        </div>
+
+        <h2 class="big-title">
+
+            Five little<br>
+
+            <em>pieces.</em>
+
+        </h2>
+
+
+        <div class="memory-wrap">
+
+            <div class="memory-card">
+
+                <div class="memory-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    The Meeting
+                </h3>
+
+                <p>
+                    Years after high school,
+                    two paths crossed again.
+                </p>
+
+            </div>
+
+
+            <div class="memory-card">
+
+                <div class="memory-icon">
+                    🌸
+                </div>
+
+                <h3>
+                    The Innocence
+                </h3>
+
+                <p>
+                    Something genuine that makes
+                    you, simply you.
+                </p>
+
+            </div>
+
+
+            <div class="memory-card">
+
+                <div class="memory-icon">
+                    🌅
+                </div>
+
+                <h3>
+                    The Sunset
+                </h3>
+
+                <p>
+                    A sunset worth remembering
+                    for a completely different reason.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="next"
+            onclick="nextScreen()">
+
+            There's more →
+
+        </button>
+
+    </div>
+
+
+    <div class="page-number">
+        03 / 12
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 4
+===================================================== -->
+
+<section class="screen" id="s4">
+
+    <div class="bg">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+
+        <div class="petals" data-petals></div>
+
+    </div>
+
+
+    <div class="content innocence">
+
+        <div class="flower">
+            🌷
+        </div>
+
+        <div class="eyebrow">
+            CHAPTER 03 · WHY YOU
+        </div>
+
+        <div class="quote">
+
+            “There's something beautiful
+            about your <em>innocence.</em>”
+
+        </div>
+
+        <p class="subtitle">
+
+            Something genuine in the way you see things.
+
+            Something I hope the world never takes away from you.
+
+        </p>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="next"
+            onclick="nextScreen()">
+
+            And then there's one problem... →
+
+        </button>
+
+    </div>
+
+
+    <div class="page-number">
+        04 / 12
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 5
+===================================================== -->
+
+<section class="screen" id="s5">
+
+    <div class="bg">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="eyebrow">
+            CHAPTER 04 · IMPORTANT NOTICE
+        </div>
+
+        <h1 class="big-title">
+
+            There is one<br>
+
+            <em>tiny problem.</em>
+
+        </h1>
+
+
+        <div class="warning">
+
+            <div class="warning-icon">
+                🚨
+            </div>
+
+            <div class="status">
+                SELF-CARE DEPARTMENT · ALERT
+            </div>
+
+            <h2>
+                Status: Needs improvement.
+            </h2>
+
+            <p>
+
+                You don't always take care of yourself...
+
+                so apparently loving you also means occasionally
+
+                reminding you to eat, rest, breathe and look after yourself.
+
+            </p>
+
+            <div class="joke">
+
+                I'm volunteering for the job. ❤️
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="next"
+            onclick="nextScreen()">
+
+            Okay, back to romance →
+
+        </button>
+
+    </div>
+
+
+    <div class="page-number">
+        05 / 12
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 6
+===================================================== -->
+
+<section class="screen" id="s6">
+
+    <div class="bg">
+
+        <div class="sun"></div>
+
+        <div class="mountain"></div>
+
+        <div class="sunset-couple">
+
+            <div class="silhouette"></div>
+
+            <div
+                class="silhouette"
+                style="height:105px;">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="sunset-copy">
+
+        <small>
+            CHAPTER 05 · THE SUNSET
+        </small>
+
+        <h2>
+
+            We were supposed<br>
+
+            to be watching the sunset.
+
+            <br><br>
+
+            <em>But I was watching you.</em>
+
+        </h2>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="next"
+            onclick="nextScreen()">
+
+            Continue →
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="page-number"
+        style="color:rgba(255,255,255,.65)">
+
+        06 / 12
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 7
+===================================================== -->
+
+<section class="screen" id="s7">
+
+    <div class="bg">
+
+        <div class="orb one"></div>
+
+        <div class="petals" data-petals></div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="eyebrow">
+            CHAPTER 06 · A LETTER
+        </div>
+
+
+        <div class="letter-box">
+
+            <h2>
+                For you, Eva.
+            </h2>
+
+
+            <p>
+                I know we met again after so many years had passed
+                since high school.
+            </p>
+
+            <p>
+                Maybe to someone else, it would just seem like
+                a random meeting.
+            </p>
+
+            <p>
+                But I don't think it was random.
+            </p>
+
+            <p>
+                I believe we were meant to cross paths again.
+            </p>
+
+            <p>
+                And I trust God enough to believe that if He brought
+                us together after all those years, He has a reason for it.
+            </p>
+
+            <p>
+                I don't know exactly where this journey will take us.
+            </p>
+
+            <p>
+                But I trust Him to take our story forward
+                in the best possible way.
+            </p>
+
+            <p>
+                And if I get to walk that journey with you...
+            </p>
+
+            <p>
+                that's something I would choose.
+            </p>
+
+            <p class="signature">
+                — From the heart.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="next"
+            onclick="nextScreen()">
+
+            One more thing... →
+
+        </button>
+
+    </div>
+
+
+    <div class="page-number">
+        07 / 12
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 8
+===================================================== -->
+
+<section class="screen" id="s8">
+
+    <div class="bg">
+
+        <div class="stars" data-stars></div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="cross">
+            ✦
+        </div>
+
+        <div class="eyebrow">
+            CHAPTER 07 · WHAT I BELIEVE
+        </div>
+
+        <h1 class="big-title">
+
+            Maybe some meetings<br>
+
+            <em>aren't random.</em>
+
+        </h1>
+
+
+        <p class="subtitle">
+
+            I don't know what God has written for the road ahead.
+
+            I don't know every chapter waiting for us.
+
+            <br><br>
+
+            But I trust Him with the journey.
+
+            And I'm grateful that, after all those years,
+
+            our paths crossed again.
+
+        </p>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="next"
+            onclick="nextScreen()">
+
+            There's one question left →
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="page-number"
+        style="color:rgba(255,255,255,.6)">
+
+        08 / 12
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 9 — PROPOSAL
+===================================================== -->
+
+<section class="screen" id="s9">
+
+    <div class="bg">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+
+        <div class="petals" data-petals></div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="ring"></div>
+
+        <div class="eyebrow">
+            ONE LAST QUESTION
+        </div>
+
+        <div class="proposal-name">
+            Eva...
+        </div>
+
+        <div class="proposal-question">
+
+            Will you<br>
+
+            choose me?
+
+        </div>
+
+
+        <p class="proposal-note">
+
+            Not just for today.
+
+            But for the ordinary days, the chaotic days,
+
+            the beautiful sunsets, the silly moments,
+
+            and whatever comes next.
+
+        </p>
+
+
+        <!--
+             IMPORTANT:
+             YES and NO are always inside
+             this same container.
+        -->
+
+        <div
+            class="proposal-buttons"
+            id="proposalButtons">
+
+            <button
+                class="yes"
+                id="yesBtn"
+                onclick="sayYes()">
+
+                ❤️ Yes, I choose you
+
+            </button>
+
+
+            <button
+                class="no"
+                id="noBtn"
+                onclick="handleNo()">
+
+                No 🙈
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="proposal-message"
+            id="proposalMessage">
+        </div>
+
+
+        <!--
+             This appears after NO attempts.
+             YES remains available.
+        -->
+
+        <div
+            class="respect hidden"
+            id="respect">
+
+            <h3>
+                No pressure. Really. 🤍
+            </h3>
+
+            <p>
+
+                Some questions deserve an honest answer.
+
+                Take whatever time you need.
+
+            </p>
+
+
+            <button
+                class="yes"
+                onclick="sayYes()">
+
+                ❤️ I choose this journey
+
+            </button>
+
+
+            <button
+                class="btn btn-light"
+                onclick="needTime()">
+
+                🤍 I need some time
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="page-number">
+        09 / 12
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 10
+===================================================== -->
+
+<section class="screen" id="s10">
+
+    <div
+        class="celebrate"
+        id="celebrate">
+    </div>
+
+
+    <div class="content">
+
+        <div style="
+            font-size:50px;
+            margin-bottom:25px;
+        ">
+
+            ✨ 💍 ✨
+
+        </div>
+
+
+        <div class="eyebrow">
+            CHAPTER 08 · A NEW BEGINNING
+        </div>
+
+
+        <h1 class="yes-title">
+
+            SHE SAID
+
+            <span>
+                YES! ❤️
+            </span>
+
+        </h1>
+
+
+        <div class="yes-sub">
+
+            Well... that escalated beautifully. 😂
+
+        </div>
+
+
+        <button
+            class="btn btn-primary"
+            onclick="nextScreen()">
+
+            See what comes next →
+
+        </button>
+
+    </div>
+
+
+    <div class="page-number">
+        10 / 12
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 11
+===================================================== -->
+
+<section class="screen" id="s11">
+
+    <div class="bg">
+
+        <div class="stars" data-stars></div>
+
+    </div>
+
+
+    <div class="content">
+
+
+        <div class="constellation">
+
+            <div class="cstar a"></div>
+            <div class="cstar b"></div>
+            <div class="cstar c"></div>
+            <div class="cstar d"></div>
+            <div class="cstar e"></div>
+
+            <div class="cline cl1"></div>
+            <div class="cline cl2"></div>
+            <div class="cline cl3"></div>
+            <div class="cline cl4"></div>
+
+        </div>
+
+
+        <div class="eyebrow">
+            CHAPTER 09 · THE ROAD AHEAD
+        </div>
+
+
+        <h1 class="big-title">
+
+            Two people.<br>
+
+            <em>One story.</em>
+
+        </h1>
+
+
+        <p class="subtitle">
+
+            Countless ordinary mornings.
+
+            Unexpected adventures.
+
+            More sunsets.
+
+            More laughter.
+
+            More ridiculous inside jokes.
+
+            And hopefully, a lot more memories.
+
+        </p>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="next"
+            onclick="nextScreen()">
+
+            One last thing →
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="page-number"
+        style="color:rgba(255,255,255,.65)">
+
+        11 / 12
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 12
+===================================================== -->
+
+<section class="screen" id="s12">
+
+    <div class="bg">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+
+        <div class="petals" data-petals></div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="final-date">
+            18 · APRIL · 2026
+        </div>
+
+
+        <h1 class="final-title">
+
+            The beginning of<br>
+
+            <em>our next chapter.</em>
+
+        </h1>
+
+
+        <p class="final-copy">
+
+            I don't know what tomorrow holds.
+
+            I don't know every road we'll have to travel.
+
+            <br><br>
+
+            But I know that somehow, after all those years,
+
+            our paths crossed again.
+
+            <br><br>
+
+            And I'm really glad they did.
+
+        </p>
+
+
+        <div class="final-line">
+
+            To be continued...
+
+            hopefully, forever. ❤️
+
+        </div>
+
+
+        <button
+            class="btn btn-light replay"
+            onclick="restart()">
+
+            ↻ Replay our story
+
+        </button>
+
+    </div>
+
+
+    <div class="page-number">
+        12 / 12
+    </div>
+
+</section>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   SCREEN SYSTEM
+========================================================= */
+
+const screens = [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s12"
+];
+
+let current = 0;
+
+
+function showScreen(index){
+
+    if(index < 0){
+        index = 0;
+    }
+
+    if(index >= screens.length){
+        index = screens.length - 1;
+    }
+
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
+
+            screen.classList.remove("active");
+
+        });
+
+
+    const target =
+        document.getElementById(
+            screens[index]
+        );
+
+
+    target.classList.add("active");
+
+
+    current = index;
+
+
+    /*
+       Reset proposal state whenever
+       we leave and later revisit it.
+    */
+
+    if(index !== 8){
+
+        resetProposal();
+
+    }
+
+
+    /*
+       Start celebration only
+       on YES screen.
+    */
+
+    if(index === 9){
+
+        startCelebration();
+
+    }
+
+}
+
+
+function nextScreen(){
+
+    if(current < screens.length - 1){
+
+        showScreen(current + 1);
+
+    }
+
+}
+
+
+function previousScreen(){
+
+    if(current > 0){
+
+        showScreen(current - 1);
+
+    }
+
+}
+
+
+function restart(){
+
+    current = 0;
+
+    resetProposal();
+
+    showScreen(0);
+
+}
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        /*
+           Don't allow Enter to accidentally
+           trigger things while typing.
+        */
+
+        if(
+            event.key === "ArrowRight"
+        ){
+
+            nextScreen();
+
+        }
+
+
+        if(
+            event.key === "ArrowLeft"
+        ){
+
+            previousScreen();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PROPOSAL LOGIC
+========================================================= */
+
+let noClicks = 0;
+
+
+const noBtn =
+    document.getElementById("noBtn");
+
+const yesBtn =
+    document.getElementById("yesBtn");
+
+const proposalMessage =
+    document.getElementById("proposalMessage");
+
+const respect =
+    document.getElementById("respect");
+
+const proposalButtons =
+    document.getElementById("proposalButtons");
+
+
+function handleNo(){
+
+    noClicks++;
+
+
+    /* -----------------------------------------------
+       FIRST NO
+    ------------------------------------------------ */
+
+    if(noClicks === 1){
+
+        proposalMessage.textContent =
+            "Hmm... I don't think you meant that. 🥺";
+
+
+        moveNoButton();
+
+    }
+
+
+    /* -----------------------------------------------
+       SECOND NO
+    ------------------------------------------------ */
+
+    else if(noClicks === 2){
+
+        proposalMessage.textContent =
+            "Okay okay... you're making this difficult. 😂";
+
+
+        moveNoButton();
+
+
+        /*
+           Wait a moment and then change
+           ONLY the NO button.
+
+           YES NEVER DISAPPEARS.
+        */
+
+        setTimeout(() => {
+
+            noBtn.textContent =
+                "🤍 I need some time";
+
+            noBtn.style.transform =
+                "translate(0,0)";
+
+            noBtn.onclick =
+                needTimeDirect;
+
+            proposalMessage.textContent =
+                "";
+
+        },700);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOVE NO BUTTON
+========================================================= */
+
+function moveNoButton(){
+
+    /*
+       Smaller movement on phones.
+       This prevents the button from
+       leaving the viewport.
+    */
+
+    const isMobile =
+        window.innerWidth <= 700;
+
+
+    const maxX =
+        isMobile ? 70 : 140;
+
+    const maxY =
+        isMobile ? 35 : 55;
+
+
+    const x =
+        (Math.random() * 2 - 1) * maxX;
+
+    const y =
+        (Math.random() * 2 - 1) * maxY;
+
+
+    noBtn.style.transform =
+        `translate(${x}px,${y}px)`;
+
+}
+
+
+/* =========================================================
+   RESPECTFUL TIME OPTION
+========================================================= */
+
+function needTimeDirect(){
+
+    noBtn.style.transform =
+        "translate(0,0)";
+
+    needTime();
+
+}
+
+
+function needTime(){
+
+    respect.classList.remove("hidden");
+
+
+    proposalMessage.textContent =
+        "";
+
+
+    /*
+       We intentionally DO NOT hide
+       proposalButtons.
+
+       YES remains visible.
+       NO remains visible.
+    */
+
+    noBtn.textContent =
+        "🤍 I need some time";
+
+
+    noBtn.onclick =
+        needTimeDirect;
+
+}
+
+
+/* =========================================================
+   YES
+========================================================= */
+
+function sayYes(){
+
+    /*
+       Go to screen 10.
+
+       This is index 9.
+    */
+
+    showScreen(9);
+
+}
+
+
+/* =========================================================
+   RESET PROPOSAL
+========================================================= */
+
+function resetProposal(){
+
+    noClicks = 0;
+
+
+    if(!noBtn){
+        return;
+    }
+
+
+    noBtn.textContent =
+        "No 🙈";
+
+
+    noBtn.style.transform =
+        "translate(0,0)";
+
+
+    noBtn.onclick =
+        handleNo;
+
+
+    proposalMessage.textContent =
+        "";
+
+
+    respect.classList.add("hidden");
+
+}
+
+
+/* =========================================================
+   CELEBRATION
+========================================================= */
+
+function startCelebration(){
+
+    const container =
+        document.getElementById("celebrate");
+
+
+    container.innerHTML = "";
+
+
+    const symbols = [
+
+        "❤️",
+        "💗",
+        "💕",
+        "✨",
+        "🌸",
+        "💫",
+        "🌹"
+
+    ];
+
+
+    for(let i = 0; i < 70; i++){
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className =
+            "celebrate-heart";
+
+
+        heart.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
+
+        heart.style.animationDuration =
+            (4 + Math.random() * 5) + "s";
+
+
+        heart.style.animationDelay =
+            Math.random() * 3 + "s";
+
+
+        heart.style.fontSize =
+            (15 + Math.random() * 22) + "px";
+
+
+        container.appendChild(heart);
+
+    }
+
+}
+
+
+/* =========================================================
+   PETALS
+========================================================= */
+
+document
+    .querySelectorAll("[data-petals]")
+    .forEach(container => {
+
+        for(let i = 0; i < 22; i++){
+
+            const petal =
+                document.createElement("div");
+
+
+            petal.className =
+                "petal";
+
+
+            petal.style.left =
+                Math.random() * 100 + "%";
+
+
+            petal.style.animationDuration =
+                (7 + Math.random() * 9) + "s";
+
+
+            petal.style.animationDelay =
+                (-Math.random() * 12) + "s";
+
+
+            petal.style.opacity =
+                .2 + Math.random() * .5;
+
+
+            container.appendChild(petal);
+
+        }
+
+    });
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+document
+    .querySelectorAll("[data-stars]")
+    .forEach(container => {
+
+        for(let i = 0; i < 70; i++){
+
+            const star =
+                document.createElement("div");
+
+
+            star.className =
+                "star";
+
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+
+            star.style.animationDelay =
+                Math.random() * 2 + "s";
+
+
+            container.appendChild(star);
+
+        }
+
+    });
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+const song =
+    document.getElementById("song");
+
+
+let playing = false;
+
+
+musicBtn.addEventListener(
+    "click",
+    async function(){
+
+        if(!playing){
+
+            try{
+
+                await song.play();
+
+                playing = true;
+
+                musicBtn.classList.add(
+                    "playing"
+                );
+
+            }
+
+            catch(error){
+
+                alert(
+                    "Add your legally obtained music file as assets/song.mp3"
+                );
+
+            }
+
+        }
+
+        else{
+
+            song.pause();
+
+            playing = false;
+
+            musicBtn.classList.remove(
+                "playing"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TOUCH SWIPE
+========================================================= */
+
+let touchStartX = 0;
+
+
+document.addEventListener(
+    "touchstart",
+    function(event){
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    {passive:true}
+);
+
+
+document.addEventListener(
+    "touchend",
+    function(event){
+
+        const touchEndX =
+            event.changedTouches[0].screenX;
+
+
+        const difference =
+            touchEndX - touchStartX;
+
+
+        /*
+           Swipe is optional.
+
+           Buttons remain the main
+           navigation method.
+        */
+
+        if(Math.abs(difference) > 110){
+
+            if(difference < 0){
+
+                /*
+                   Don't let swipe accidentally
+                   skip the proposal question.
+                */
+
+                if(current !== 8){
+
+                    nextScreen();
+
+                }
+
+            }
+
+            else{
+
+                previousScreen();
+
+            }
+
+        }
+
+    },
+    {passive:true}
+);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+showScreen(0);
+
+</script>
+
+</body>
+</html>
+```
